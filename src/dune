@@ -1,0 +1,7 @@
+(executable
+ (public_name SequentCalculus)
+ (name main))
+
+(env
+  (dev
+    (flags (:standard -warn-error -A))))
