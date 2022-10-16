@@ -1,27 +1,58 @@
-\documentclass[margin=0.1cm,varwidth=100cm]{standalone}
+\documentclass[margin=0.1cm,varwidth=500cm]{standalone}
 \usepackage{ebproof}
 \usepackage{amssymb}
 
 \begin{document}
 \begin{prooftree}
-\infer0[$(Ax)$]{((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c),c \vdash c}
-\infer1[$(\vdash\rightarrow)$]{c \vdash (((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c)) \rightarrow c}
-\infer0[$(Ax)$]{c,b,a \vdash c,c}
-\infer0[$(Ax)$]{c,b,a \vdash c,c,c}
-\infer0[$(Ax)$]{b,a \vdash b,c,c,c}
-\infer2[$(\rightarrow\vdash)$]{b \rightarrow c,b,a \vdash c,c,c}
-\infer1[$(\vdash\rightarrow)$]{b,a \vdash (b \rightarrow c) \rightarrow c,c,c}
-\infer2[$(\rightarrow\vdash)$]{((b \rightarrow c) \rightarrow c) \rightarrow c,b,a \vdash c,c}
-\infer0[$(Ax)$]{c,b,a \vdash c,c,c}
-\infer0[$(Ax)$]{b,a \vdash a,c,c,c}
-\infer2[$(\rightarrow\vdash)$]{a \rightarrow c,b,a \vdash c,c,c}
-\infer1[$(\vdash\rightarrow)$]{b,a \vdash (a \rightarrow c) \rightarrow c,c,c}
-\infer2[$(\rightarrow\vdash)$]{((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c),b,a \vdash c,c}
-\infer1[$(\vdash\rightarrow)$]{b,a \vdash (((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c)) \rightarrow c,c}
-\infer1[$(\vdash\rightarrow)$]{a \vdash b \rightarrow c,(((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c)) \rightarrow c}
-\infer1[$(\vdash\rightarrow)$]{ \vdash a \rightarrow (b \rightarrow c),(((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c)) \rightarrow c}
-\infer2[$(\rightarrow\vdash)$]{(a \rightarrow (b \rightarrow c)) \rightarrow c \vdash (((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c)) \rightarrow c}
-\infer1[$(\vdash\rightarrow)$]{ \vdash ((a \rightarrow (b \rightarrow c)) \rightarrow c) \rightarrow ((((a \rightarrow c) \rightarrow c) \rightarrow (((b \rightarrow c) \rightarrow c) \rightarrow c)) \rightarrow c)}
+\infer0[$(Ax)$]{\rightarrow,\land,\land,\neg \vdash \neg}
+\infer1[$(\neg\vdash)$]{ \neg \neg,\rightarrow,\land,\land,\neg \vdash }
+\infer1[$(\vdash\neg)$]{\rightarrow,\land,\land,\neg \vdash  \neg ( \neg \neg)}
+\infer0[$(Ax)$]{\rightarrow,\land,\land,\neg \vdash \neg}
+\infer1[$(\neg\vdash)$]{ \neg \neg,\rightarrow,\land,\land,\neg \vdash }
+\infer1[$(\vdash\neg)$]{\rightarrow,\land,\land,\neg \vdash  \neg ( \neg \neg)}
+\infer1[$(\vdash\neg)$]{\land,\land,\neg \vdash  \neg \rightarrow, \neg ( \neg \neg)}
+\infer2[$(\rightarrow\vdash)$]{( \neg \rightarrow) \rightarrow \rightarrow,\land,\land,\neg \vdash  \neg ( \neg \neg)}
+\infer1[$(\vdash\rightarrow)$]{\land,\land,\neg \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))}
+\infer1[$(\land\vdash)$]{\land \land \land,\neg \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))}
+\infer0[$(Ax)$]{\rightarrow,\neg \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow}
+\infer0[$(Ax)$]{\rightarrow,\neg \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow}
+\infer1[$(\vdash\neg)$]{\neg \vdash  \neg \rightarrow, \neg ( \neg \neg),\rightarrow,\rightarrow}
+\infer2[$(\rightarrow\vdash)$]{( \neg \rightarrow) \rightarrow \rightarrow,\neg \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow}
+\infer1[$(\vdash\rightarrow)$]{\neg \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\rightarrow,\rightarrow}
+\infer1[$(\neg\vdash)$]{ \neg \rightarrow,\neg \vdash \rightarrow,(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))}
+\infer1[$(\vdash\rightarrow)$]{\neg \vdash ( \neg \rightarrow) \rightarrow \rightarrow,(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))}
+\infer2[$(\rightarrow\vdash)$]{(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land),\neg \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))}
+\infer1[$(\vdash\rightarrow)$]{\neg \vdash ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)))}
+\infer1[$(\vdash\neg)$]{ \vdash  \neg \neg,((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)))}
+\infer1[$(\neg\vdash)$]{ \neg ( \neg \neg) \vdash ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)))}
+\infer0[$(Ax)$]{\land,\land \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer1[$(\land\vdash)$]{\land \land \land \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer0[$(Ax)$]{\rightarrow \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer0[$(Ax)$]{\rightarrow \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer1[$(\vdash\neg)$]{ \vdash  \neg \rightarrow, \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer2[$(\rightarrow\vdash)$]{( \neg \rightarrow) \rightarrow \rightarrow \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer1[$(\vdash\rightarrow)$]{ \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer1[$(\neg\vdash)$]{ \neg \rightarrow \vdash \rightarrow,(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer1[$(\vdash\rightarrow)$]{ \vdash ( \neg \rightarrow) \rightarrow \rightarrow,(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer2[$(\rightarrow\vdash)$]{(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land) \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer1[$(\vdash\rightarrow)$]{ \vdash ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))),\lor,\lor,\land}
+\infer1[$(\vdash\lor)$]{ \vdash \lor \lor \lor,((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))),\land}
+\infer0[$(Ax)$]{\land,\land \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer1[$(\land\vdash)$]{\land \land \land \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer0[$(Ax)$]{\rightarrow \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer0[$(Ax)$]{\rightarrow \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer1[$(\vdash\neg)$]{ \vdash  \neg \rightarrow, \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer2[$(\rightarrow\vdash)$]{( \neg \rightarrow) \rightarrow \rightarrow \vdash  \neg ( \neg \neg),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer1[$(\vdash\rightarrow)$]{ \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\rightarrow,\rightarrow,\lor,\lor,\land}
+\infer1[$(\neg\vdash)$]{ \neg \rightarrow \vdash \rightarrow,(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer1[$(\vdash\rightarrow)$]{ \vdash ( \neg \rightarrow) \rightarrow \rightarrow,(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer2[$(\rightarrow\vdash)$]{(( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land) \vdash (( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)),\lor,\lor,\land}
+\infer1[$(\vdash\rightarrow)$]{ \vdash ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))),\lor,\lor,\land}
+\infer1[$(\vdash\lor)$]{ \vdash \lor \lor \lor,((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))),\land}
+\infer2[$(\vdash\land)$]{ \vdash \land \land \land,\lor \lor \lor,((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)))}
+\infer1[$(\vdash\lor)$]{ \vdash (\land \land \land) \lor \lor \lor \lor,((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)))}
+\infer2[$(\rightarrow\vdash)$]{((\land \land \land) \lor \lor \lor \lor) \rightarrow ( \neg ( \neg \neg)) \vdash ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg)))}
+\infer1[$(\vdash\rightarrow)$]{ \vdash (((\land \land \land) \lor \lor \lor \lor) \rightarrow ( \neg ( \neg \neg))) \rightarrow (((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow (\land \land \land)) \rightarrow ((( \neg \rightarrow) \rightarrow \rightarrow) \rightarrow ( \neg ( \neg \neg))))}
 \end{prooftree}
 
 

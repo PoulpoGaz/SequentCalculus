@@ -331,7 +331,7 @@ let proof_search_latex out to_string sequent =
   valid
 
 let latex_header out =
-  output_string out "\\documentclass[margin=0.1cm,varwidth=100cm]{standalone}\n";
+  output_string out "\\documentclass[margin=0.1cm,varwidth=500cm]{standalone}\n";
   output_string out "\\usepackage{ebproof}\n";
   output_string out "\\usepackage{amssymb}\n";
   output_string out "\n";
